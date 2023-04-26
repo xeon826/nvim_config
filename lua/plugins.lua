@@ -4,6 +4,8 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
+  use "nvim-lua/plenary.nvim"
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
   use {
     'junegunn/fzf.vim',
     requires = { 'junegunn/fzf', run = ':call fzf#install()' }
