@@ -16,12 +16,15 @@ colorscheme ayu
 let g:block_comment_dict = {
 		\'/*': ["js", "ts", "cpp", "c", "dart", "tsx"],
 		\'"""': ['py'],
+		\'--[[': ['lua'],
 		\}
 
 let g:inline_comment_dict = {
 		\'//': ["js", "ts", "cpp", "c", "dart", "tsx"],
 		\'#': ['py', 'sh'],
+		\'--': ['lua'],
 		\'"': ['vim'],
 		\}
 
 au TextYankPost * silent! lua vim.highlight.on_yank()
+set clipboard+=unnamedplus
