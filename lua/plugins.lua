@@ -21,7 +21,11 @@ return require('packer').startup(function(use)
   use 'Avimitin/nerd-galaxyline'
   use 'numirias/semshi'
   use 'KarimElghamry/vim-auto-comment'
-  use 'natecraddock/nvim-find'
+  use 'nvim-telescope/telescope.nvim'
+  use {
+    "nvim-telescope/telescope-file-browser.nvim",
+    requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+  }
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
   use 'ayu-theme/ayu-vim'

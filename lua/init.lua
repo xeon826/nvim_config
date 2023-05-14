@@ -20,44 +20,36 @@ require("nvim-tree").setup({
     dotfiles = true,
   },
 })
-require'lspconfig'.pylyzer.setup{}
--- Global mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
-
--- Use LspAttach autocommand to only map the following keys
--- after the language server attaches to the current buffer
-vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-  callback = function(ev)
-    -- Enable completion triggered by <c-x><c-o>
-    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
-
-    -- Buffer local mappings.
-    -- See `:help vim.lsp.*` for documentation on any of the below functions
-    local opts = { buffer = ev.buf }
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-    vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
-    vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
-    vim.keymap.set('n', '<space>wl', function()
-      print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-    end, opts)
-    vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
-    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
-    vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, opts)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-    vim.keymap.set('n', '<space>f', function()
-      vim.lsp.buf.format { async = false }
-    end, opts)
-  end,
-})
+-- require'lspconfig'.pylyzer.setup{}
+-- vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
+-- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+-- vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+-- vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
+-- 
+-- vim.api.nvim_create_autocmd('LspAttach', {
+--   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+--   callback = function(ev)
+--     vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+--     local opts = { buffer = ev.buf }
+--     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+--     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+--     vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+--     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+--     vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+--     vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
+--     vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
+--     vim.keymap.set('n', '<space>wl', function()
+--       print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+--     end, opts)
+--     vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
+--     vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+--     vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, opts)
+--     vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+--     vim.keymap.set('n', '<space>f', function()
+--       vim.lsp.buf.format { async = false }
+--     end, opts)
+--   end,
+-- })
 
 -- require("nvim-find.config").setup({
 -- 	height = 20,
@@ -65,21 +57,21 @@ vim.api.nvim_create_autocmd('LspAttach', {
 -- 	files={ignore = {'/vendor/*','.git/*','node_modules/*','/venv/*'}},
 -- 	search={start_closed = false}
 -- })
-local cf = require("nvim-find.config")
+-- local cf = require("nvim-find.config")
 
 -- maximum height of the finder
-cf.height = 20
+-- cf.height = 20
 
 -- maximum width of the finder
-cf.width = 100
+-- cf.width = 100
 
 -- list of ignore globs for the filename filter
 -- e.g. "*.png" will ignore any file ending in .png and
 -- "*node_modules*" ignores any path containing node_modules
-cf.files.ignore = {}
+-- cf.files.ignore = {}
 
 -- start with all result groups collapsed
-cf.search.start_closed = false
+-- cf.search.start_closed = false
 
 local diagnostic = require('galaxyline.provider_diagnostic')
 local vcs = require('galaxyline.provider_vcs')
@@ -105,3 +97,84 @@ require('galaxyline').section.left[1] = {
     separator_highlight = { colors.purple, colors.darkblue },
   },
 }
+local fb_actions = require "telescope._extensions.file_browser.actions"
+
+require("telescope").setup {
+  extensions = {
+    file_browser = {
+      -- path
+      -- cwd
+      cwd_to_path = false,
+      grouped = false,
+      lazy = false,
+      files = true,
+      add_dirs = true,
+      depth = 1,
+      auto_depth = false,
+      select_buffer = false,
+      hidden = { file_browser = false, folder_browser = false },
+      -- respect_gitignore
+      -- browse_files
+      -- browse_folders
+      hide_parent_dir = false,
+      collapse_dirs = false,
+      prompt_path = false,
+      quiet = false,
+      dir_icon = "",
+      dir_icon_hl = "Default",
+      display_stat = { date = true, size = true, mode = true },
+      hijack_netrw = false,
+      use_fd = true,
+      git_status = true,
+      mappings = {
+        ["i"] = {
+          ["<A-c>"] = fb_actions.create,
+          ["<S-CR>"] = fb_actions.create_from_prompt,
+          ["<A-r>"] = fb_actions.rename,
+          ["<A-m>"] = fb_actions.move,
+          ["<A-y>"] = fb_actions.copy,
+          ["<A-d>"] = fb_actions.remove,
+          ["<C-o>"] = fb_actions.open,
+          ["<C-g>"] = fb_actions.goto_parent_dir,
+          ["<C-e>"] = fb_actions.goto_home_dir,
+          ["<C-w>"] = fb_actions.goto_cwd,
+          ["<C-t>"] = fb_actions.change_cwd,
+          ["<C-f>"] = fb_actions.toggle_browser,
+          ["<C-h>"] = fb_actions.toggle_hidden,
+          ["<C-s>"] = fb_actions.toggle_all,
+          ["<bs>"] = fb_actions.backspace,
+        },
+        ["n"] = {
+          ["c"] = fb_actions.create,
+          ["r"] = fb_actions.rename,
+          ["m"] = fb_actions.move,
+          ["y"] = fb_actions.copy,
+          ["d"] = fb_actions.remove,
+          ["o"] = fb_actions.open,
+          ["g"] = fb_actions.goto_parent_dir,
+          ["e"] = fb_actions.goto_home_dir,
+          ["w"] = fb_actions.goto_cwd,
+          ["t"] = fb_actions.change_cwd,
+          ["f"] = fb_actions.toggle_browser,
+          ["h"] = fb_actions.toggle_hidden,
+          ["s"] = fb_actions.toggle_all,
+        },
+      },
+    },
+  },
+}
+vim.api.nvim_set_keymap(
+  "n",
+  "<space>fb",
+  ":Telescope file_browser<CR>",
+  { noremap = true }
+)
+
+vim.api.nvim_set_keymap(
+  "n",
+  "<space>ff",
+  ":Telescope fd<CR>",
+  { noremap = true }
+)
+
+require("telescope").load_extension "file_browser"

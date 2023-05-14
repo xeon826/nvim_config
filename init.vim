@@ -1,6 +1,7 @@
 lua require('plugins')
 lua require('init')
 nnoremap <C-\> :NvimTreeToggle<CR>
+nnoremap <C-S-f> :Telescope file_browser<CR>
 nnoremap <A-n> :tabnext<CR>
 nnoremap <A-p> :tabprev<CR>
 nnoremap <C-i> :tabc<CR>
