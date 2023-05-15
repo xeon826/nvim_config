@@ -1,3 +1,4 @@
+`sudo add-apt-repository ppa:neovim-ppa/unstable`
 `sudo apt install neovim silversearcher-ag fd-find ripgrep fzf`
 ```
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
