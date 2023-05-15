@@ -10,7 +10,7 @@ nnoremap <A-8> :DiffviewClose<CR>
 nnoremap <C-A-f> :FzfLua live_grep<CR>
 nnoremap <C-A-F> :FzfLua live_grep_resume<CR>
 nnoremap <C-A-g> :FzfLua git_branches<CR>
-nnoremap <C-p> :FzfLua files<CR>
+nnoremap <C-A-l> :FzfLua files<CR>
 nnoremap <C-A-C> :FzfLua git_commits<CR>
 nnoremap <C-A-o> :nohlsearch<CR>
 set termguicolors     " enable true colors support
