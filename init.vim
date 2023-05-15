@@ -1,14 +1,17 @@
 lua require('plugins')
 lua require('init')
 nnoremap <C-\> :NvimTreeToggle<CR>
-nnoremap <C-S-f> :Telescope file_browser<CR>
 nnoremap <A-n> :tabnext<CR>
 nnoremap <A-p> :tabprev<CR>
 nnoremap <C-i> :tabc<CR>
 nnoremap <C-s> :w<CR>
 nnoremap <A-9> :DiffviewOpen<CR>
 nnoremap <A-8> :DiffviewClose<CR>
-nnoremap <C-A-f> :Ag<CR>
+nnoremap <C-A-f> :FzfLua live_grep<CR>
+nnoremap <C-A-F> :FzfLua live_grep_resume<CR>
+nnoremap <C-A-g> :FzfLua git_branches<CR>
+nnoremap <C-p> :FzfLua files<CR>
+nnoremap <C-A-C> :FzfLua git_commits<CR>
 nnoremap <C-A-o> :nohlsearch<CR>
 set termguicolors     " enable true colors support
 let ayucolor="dark"   " for dark version of theme

@@ -6,9 +6,14 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
   use "nvim-lua/plenary.nvim"
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
-  use {
-    'junegunn/fzf.vim',
-    requires = { 'junegunn/fzf', run = ':call fzf#install()' }
+--   use {
+--     'junegunn/fzf.vim',
+--     requires = { 'junegunn/fzf', run = ':call fzf#install()' }
+--   }
+--   use = { 'junegunn/fzf', run = './install --bin' }
+  use { 'ibhagwan/fzf-lua',
+    -- optional for icon support
+    requires = { 'nvim-tree/nvim-web-devicons' }
   }
   use({
     'glepnir/galaxyline.nvim',
@@ -26,7 +31,8 @@ return require('packer').startup(function(use)
     "nvim-telescope/telescope-file-browser.nvim",
     requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
   }
-  -- Packer can manage itself
+
+
   use 'wbthomason/packer.nvim'
   use 'ayu-theme/ayu-vim'
 
