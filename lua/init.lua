@@ -97,3 +97,15 @@ require('galaxyline').section.left[1] = {
     separator_highlight = { colors.purple, colors.darkblue },
   },
 }
+-- vim.api.nvim_set_keymap(
+--  "n",
+--  "<C-/>",
+--  ":AutoInlineComment<CR>",
+--   { noremap = true }
+-- )
+-- vim.api.nvim_set_keymap(
+--  "x",
+--  "<C-/>",
+--  ":AutoBlockComment<CR>",
+--   { noremap = true }
+-- )

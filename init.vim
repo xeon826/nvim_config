@@ -17,17 +17,23 @@ set termguicolors     " enable true colors support
 let ayucolor="dark"   " for dark version of theme
 colorscheme ayu
 let g:block_comment_dict = {
-		\'/*': ["js", "ts", "cpp", "c", "dart", "tsx"],
+		\'/*': ["js", "cpp", "c", "dart"],
+		\'{/*': ["ts", "tsx"],
 		\'"""': ['py'],
 		\'--[[': ['lua'],
 		\}
 
 let g:inline_comment_dict = {
-		\'//': ["js", "ts", "cpp", "c", "dart", "tsx"],
+		\'//': ["js", "cpp", "c", "dart", "ts", "tsx"],
 		\'#': ['py', 'sh'],
 		\'--': ['lua'],
 		\'"': ['vim'],
 		\}
+" Inline comment mapping
+" autocmd FileType tsx setlocal commentstring={*/\ %s /*}
+" vim maps / to _ so use C-/ for this
+nmap <C-_> :Commentary<CR>
+vmap <C-_> :Commentary<CR>
 
 au TextYankPost * silent! lua vim.highlight.on_yank()
 set clipboard+=unnamedplus

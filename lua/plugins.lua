@@ -25,7 +25,7 @@ return require('packer').startup(function(use)
   })
   use 'Avimitin/nerd-galaxyline'
   use 'numirias/semshi'
-  use 'KarimElghamry/vim-auto-comment'
+  use 'tpope/vim-commentary'
   use 'nvim-telescope/telescope.nvim'
   use {
     "nvim-telescope/telescope-file-browser.nvim",
