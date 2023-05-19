@@ -20,7 +20,8 @@ require("nvim-tree").setup({
     dotfiles = true,
   },
 })
- require'lspconfig'.pylyzer.setup{}
+
+ require'lspconfig'.pyright.setup{}
  vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
  vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
@@ -50,6 +51,9 @@ require("nvim-tree").setup({
      end, opts)
    end,
  })
+ --
+ --
+ --
 --
 --
 -- Utilities for creating configurations
@@ -108,4 +112,5 @@ require("nvim-tree").setup({
 --   }
 -- }
 require('lualine').setup()
+require('fzf-lua').setup({'fzf-native'})
 
