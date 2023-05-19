@@ -2,8 +2,6 @@ lua require('plugins')
 lua require('init')
 nnoremap <C-\> :NvimTreeToggle<CR>
 nnoremap <C-s> :w<CR>
-nnoremap <space>gdo :DiffviewOpen<CR>
-nnoremap <space>gdc :DiffviewClose<CR>
 nnoremap <space>gg :tab G<CR>
 nnoremap <C-A-q> :qa!<CR>
 nnoremap <C-A-f> :FzfLua live_grep<CR>
