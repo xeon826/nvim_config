@@ -28,6 +28,7 @@ set clipboard+=unnamedplus
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set autoread
 " set completeopt-=preview
 nnoremap <A-i> :BufferClose<CR>
 nnoremap <A-I> :BufferRestore<CR>
