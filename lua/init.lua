@@ -73,30 +73,32 @@ require("nvim-tree").setup({
 -- start with all result groups collapsed
 -- cf.search.start_closed = false
 
-local diagnostic = require('galaxyline.provider_diagnostic')
-local vcs = require('galaxyline.provider_vcs')
-local fileinfo = require('galaxyline.provider_fileinfo')
-local extension = require('galaxyline.provider_extensions')
-local colors = require('galaxyline.colors')
-local buffer = require('galaxyline.provider_buffer')
-local whitespace = require('galaxyline.provider_whitespace')
-local lspclient = require('galaxyline.provider_lsp')
+-- local diagnostic = require('galaxyline.provider_diagnostic')
+-- local vcs = require('galaxyline.provider_vcs')
+-- local fileinfo = require('galaxyline.provider_fileinfo')
+-- local extension = require('galaxyline.provider_extensions')
+-- local colors = require('galaxyline.colors')
+-- local buffer = require('galaxyline.provider_buffer')
+-- local whitespace = require('galaxyline.provider_whitespace')
+-- local lspclient = require('galaxyline.provider_lsp')
 
-require('galaxyline').section.left[1] = {
-  FileSize = {
-    provider = 'FileSize',
-    condition = function()
-      if vim.fn.empty(vim.fn.expand('%:t')) ~= 1 then
-        return true
-      end
-      return false
-    end,
-    icon = '   ',
-    highlight = { colors.green, colors.purple },
-    separator = '',
-    separator_highlight = { colors.purple, colors.darkblue },
-  },
-}
+-- require('galaxyline').section.left[1] = {
+--   FileSize = {
+--     provider = 'FileSize',
+--     condition = function()
+--       if vim.fn.empty(vim.fn.expand('%:t')) ~= 1 then
+--         return true
+--       end
+--       return false
+--     end,
+--     icon = '   ',
+--     highlight = { colors.green, colors.purple },
+--     separator = '',
+--     separator_highlight = { colors.purple, colors.darkblue },
+--   },
+-- }
+--
+--
 -- vim.api.nvim_set_keymap(
 --  "n",
 --  "<C-/>",
@@ -109,3 +111,77 @@ require('galaxyline').section.left[1] = {
 --  ":AutoBlockComment<CR>",
 --   { noremap = true }
 -- )
+-- Utilities for creating configurations
+local util = require "formatter.util"
+
+-- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
+require("formatter").setup {
+  -- Enable or disable logging
+  logging = true,
+  -- Set the log level
+  log_level = vim.log.levels.WARN,
+  -- All formatter configurations are opt-in
+  filetype = {
+    -- Formatter configurations for filetype "lua" go here
+    -- and will be executed in order
+    lua = {
+      -- "formatter.filetypes.lua" defines default configurations for the
+      -- "lua" filetype
+      require("formatter.filetypes.lua").stylua,
+
+      -- You can also define your own configuration
+      function()
+        -- Supports conditional formatting
+        if util.get_current_buffer_file_name() == "special.lua" then
+          return nil
+        end
+
+        -- Full specification of configurations is down below and in Vim help
+        -- files
+        return {
+          exe = "stylua",
+          args = {
+            "--search-parent-directories",
+            "--stdin-filepath",
+            util.escape_path(util.get_current_buffer_file_path()),
+            "--",
+            "-",
+          },
+          stdin = true,
+        }
+      end
+    },
+    typescript = {
+	    require("formatter.filetypes.typescriptreact").prettierd,
+	    function()
+		    return {
+			    exe = "prettierd",
+			    args = {
+				    util.escape_path(util.get_current_buffer_file_path())
+			    }
+		    }
+ 	    end
+    },
+    python = {
+	    require("formatter.filetypes.python").yapf,
+	    function()
+		    return {
+			    exe = "yapf",
+			    args = {
+				    util.escape_path(util.get_current_buffer_file_path())
+			    }
+		    }
+            end
+    },
+
+    -- Use the special "*" filetype for defining formatter configurations on
+    -- any filetype
+    ["*"] = {
+      -- "formatter.filetypes.any" defines default configurations for any
+      -- filetype
+      require("formatter.filetypes.any").remove_trailing_whitespace
+    }
+  }
+}
+require('lualine').setup()
+

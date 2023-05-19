@@ -5,6 +5,7 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
   use "nvim-lua/plenary.nvim"
+  use "tpope/vim-fugitive"
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 --   use {
 --     'junegunn/fzf.vim',
@@ -15,15 +16,18 @@ return require('packer').startup(function(use)
     -- optional for icon support
     requires = { 'nvim-tree/nvim-web-devicons' }
   }
-  use({
-    'glepnir/galaxyline.nvim',
-    branch = 'main',
-    config = function()
-      require('nerd-galaxyline')
-    end,
-    requires = { 'nvim-tree/nvim-web-devicons', opt = false},
-  })
-  use 'Avimitin/nerd-galaxyline'
+  use {'romgrk/barbar.nvim', requires = {
+    'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+    'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+  }}
+  use 'mhartington/formatter.nvim'
+-- themes
+  use 'nyoom-engineering/oxocarbon.nvim'
+
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
   use 'numirias/semshi'
   use 'tpope/vim-commentary'
   use 'nvim-telescope/telescope.nvim'
