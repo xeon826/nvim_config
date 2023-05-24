@@ -24,7 +24,25 @@ require("nvim-tree").setup({
   },
 })
 
- require'lspconfig'.pyright.setup{}
+ require'lspconfig'.pylyzer.setup{
+	default_config = {
+		name = "pylyzer",
+		cmd = { "pylyzer", "--server" },
+		filetypes = { "python" },
+		root_dir = function(fname)
+			local root_files = {
+				"pyproject.toml",
+				"setup.py",
+				"setup.cfg",
+				"requirements.txt",
+				"Pipfile",
+			}
+			return util.root_pattern(unpack(root_files))(fname)
+				or util.find_git_ancestor(fname)
+				or util.path.dirname(fname)
+		end,
+	},
+}
  vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
  vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
