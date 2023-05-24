@@ -12,6 +12,9 @@ vim.opt.termguicolors = true
 -- OR setup with some options
 require("nvim-tree").setup({
   sort_by = "case_sensitive",
+  update_focused_file = {
+      enable = true
+  },
   open_on_tab = true,
   renderer = {
     group_empty = true,
@@ -111,6 +114,16 @@ require("nvim-tree").setup({
 --     }
 --   }
 -- }
-require('lualine').setup()
+require('lualine').setup {
+    sections = {
+      lualine_c = {
+        {
+          'filename',
+          file_status = true, -- displays file status (readonly status, modified status)
+          path = 1 -- 0 = just filename, 1 = relative path, 2 = absolute path
+        }
+      }
+    }
+}
 require('fzf-lua').setup({'fzf-native'})
 

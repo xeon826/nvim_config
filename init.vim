@@ -4,8 +4,9 @@ nnoremap <C-\> :NvimTreeToggle<CR>
 nnoremap <C-s> :w<CR>
 nnoremap <space>gg :tab G<CR>
 nnoremap <C-A-q> :qa!<CR>
-nnoremap <C-A-f> :FzfLua live_grep<CR>
-nnoremap <C-A-F> :FzfLua live_grep_resume<CR>
+nnoremap <A-f> :FzfLua live_grep<CR>
+nnoremap <A-F> :FzfLua live_grep_resume<CR>
+nnoremap ff :NvimTreeFindFile<CR>
 nnoremap <C-A-g> :FzfLua git_branches<CR>
 nnoremap <C-l> :FzfLua files<CR>
 nnoremap <space>gc :FzfLua git_commits<CR>
@@ -29,6 +30,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set autoread
+set statusline+=%F
 " set completeopt-=preview
 nnoremap <A-i> :BufferClose<CR>
 nnoremap <A-I> :BufferRestore<CR>
