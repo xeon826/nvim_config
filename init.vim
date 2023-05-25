@@ -2,13 +2,13 @@ lua require('plugins')
 lua require('init')
 nnoremap <C-\> :NvimTreeToggle<CR>
 nnoremap <C-s> :w<CR>
-nnoremap <space>gg :tab G<CR>
 nnoremap <C-A-q> :qa!<CR>
 nnoremap <A-f> :FzfLua live_grep<CR>
 nnoremap <A-F> :FzfLua live_grep_resume<CR>
 nnoremap ff :NvimTreeFindFile<CR>
-nnoremap <C-A-g> :FzfLua git_branches<CR>
 nnoremap <C-l> :FzfLua files<CR>
+nnoremap <space>gb :FzfLua git_branches<CR>
+nnoremap <space>gg :tab G<CR>
 nnoremap <space>gc :FzfLua git_commits<CR>
 nnoremap <space>gp :Git push<CR>
 nnoremap <C-A-o> :nohlsearch<CR>
