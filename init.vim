@@ -10,6 +10,7 @@ nnoremap ff :NvimTreeFindFile<CR>
 nnoremap <C-A-g> :FzfLua git_branches<CR>
 nnoremap <C-l> :FzfLua files<CR>
 nnoremap <space>gc :FzfLua git_commits<CR>
+nnoremap <space>gp :Git push<CR>
 nnoremap <C-A-o> :nohlsearch<CR>
 set termguicolors     " enable true colors support
 let background="dark"   " for dark version of theme
