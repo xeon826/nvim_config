@@ -31,6 +31,7 @@ set shiftwidth=4
 set expandtab
 set autoread
 set statusline+=%F
+set mouse=a
 " set completeopt-=preview
 nnoremap <A-i> :BufferClose<CR>
 nnoremap <A-I> :BufferRestore<CR>
@@ -48,3 +49,14 @@ nnoremap <silent>    <A-9> <Cmd>BufferGoto 9<CR>
 nnoremap <silent>    <A-0> <Cmd>BufferLast<CR>
 nnoremap <silent>    <A-p> <Cmd>BufferPrevious<CR>
 nnoremap <silent>    <A-n> <Cmd>BufferNext<CR>
+
+command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
+let g:coc_global_extensions = [
+            \ 'coc-json',
+            \ 'coc-tsserver',
+            \ 'coc-html',
+            \ 'coc-css',
+            \ '@yaegassy/coc-pylsp',
+            \ 'coc-prettier'
+            \ ]
+autocmd FileType python let b:coc_root_patterns = ['venv', 'env', '.git', '.gitignore', 'manage.py']

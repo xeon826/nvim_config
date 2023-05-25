@@ -12,10 +12,12 @@ return require('packer').startup(function(use)
 --     requires = { 'junegunn/fzf', run = ':call fzf#install()' }
 --   }
 --   use = { 'junegunn/fzf', run = './install --bin' }
+  -- use {'pappasam/coc-jedi', branch = 'main', run = 'yarn install --frozen-lockfile && yarn build'}
   use { 'ibhagwan/fzf-lua',
     -- optional for icon support
     requires = { 'nvim-tree/nvim-web-devicons' }
   }
+  use {'neoclide/coc.nvim', branch = 'release'}
   use {'romgrk/barbar.nvim', requires = {
     'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
     'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
