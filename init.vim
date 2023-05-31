@@ -7,6 +7,7 @@ nnoremap <A-f> :FzfLua live_grep<CR>
 nnoremap <A-F> :FzfLua live_grep_resume<CR>
 nnoremap ff :NvimTreeFindFile<CR>
 nnoremap <C-l> :FzfLua files<CR>
+nnoremap <space>wq :wq<CR>
 nnoremap <space>gb :FzfLua git_branches<CR>
 nnoremap <space>gg :tab G<CR>
 nnoremap <space>gc :FzfLua git_commits<CR>
@@ -50,6 +51,12 @@ nnoremap <silent>    <A-9> <Cmd>BufferGoto 9<CR>
 nnoremap <silent>    <A-0> <Cmd>BufferLast<CR>
 nnoremap <silent>    <A-p> <Cmd>BufferPrevious<CR>
 nnoremap <silent>    <A-n> <Cmd>BufferNext<CR>
+" nnoremap <Leader>ca <Plug>(coc-codeaction-selected)<CR>
+
+nnoremap <leader>d  <Plug>(coc-codeaction)<CR>
+nnoremap <leader>k  <Plug>(coc-codeaction-selected)w
+nnoremap <leader>j  <Plug>(coc-codeaction-line)
+nnoremap <leader>h  <Plug>(coc-codeaction-cursor)
 
 command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 let g:coc_global_extensions = [
@@ -58,6 +65,7 @@ let g:coc_global_extensions = [
             \ 'coc-html',
             \ 'coc-css',
             \ '@yaegassy/coc-pylsp',
+            \ '@yaegassy/coc-ruff',
             \ 'coc-prettier'
             \ ]
 autocmd FileType python let b:coc_root_patterns = ['venv', 'env', '.git', '.gitignore', 'manage.py']
