@@ -12,7 +12,6 @@
     "mccabe",
     "pycodestyle",
     "pydocstyle",
-    "pyflakes",
     "pylint",
     "rope"
   ],
@@ -20,6 +19,5 @@
   "python.formatting.blackPath": "~/.config/coc/extensions/@yaegassy/coc-pylsp-data/pylsp/venv/bin/black",
   "coc.preferences.formatOnSaveFiletypes": ["python"],
   "pylsp.builtin.enableInstallPylsIsort": true,
-  "pylsp.builtin.enableInstallPythonLspRuff": true,
-  "pylsp.builtin.enableInstallPythonLspBlack": true
+  "pylsp.builtin.enableInstallPythonLspBlack": false
 }
