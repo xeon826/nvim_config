@@ -8,16 +8,16 @@
     }
   },
   "pylsp.builtin.installExtrasArgs": [
-    "flake8",
     "mccabe",
-    "pycodestyle",
     "pydocstyle",
+    "pycodestyle",
     "pylint",
-    "rope"
+    "rope",
+    "black"
   ],
   "python.formatting.provider": "black",
   "python.formatting.blackPath": "~/.config/coc/extensions/@yaegassy/coc-pylsp-data/pylsp/venv/bin/black",
   "coc.preferences.formatOnSaveFiletypes": ["python"],
   "pylsp.builtin.enableInstallPylsIsort": true,
-  "pylsp.builtin.enableInstallPythonLspBlack": false
+  "pylsp.builtin.enableInstallPythonLspBlack": true 
 }

@@ -22,7 +22,7 @@ return require('packer').startup(function(use)
     'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
     'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
   }}
-  use 'mhartington/formatter.nvim'
+  -- use 'mhartington/formatter.nvim'
 -- themes
   use 'nyoom-engineering/oxocarbon.nvim'
 
@@ -30,7 +30,16 @@ return require('packer').startup(function(use)
     'nvim-lualine/lualine.nvim',
     requires = { 'nvim-tree/nvim-web-devicons', opt = true }
   }
-  use 'numirias/semshi'
+  -- use 'numirias/semshi'
+  use {
+      'nvim-treesitter/nvim-treesitter',
+      run = function()
+          local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+          ts_update()
+      end,
+  }
+
+
   use 'tpope/vim-commentary'
   use 'nvim-telescope/telescope.nvim'
   use {
