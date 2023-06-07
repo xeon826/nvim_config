@@ -8,10 +8,8 @@
     }
   },
   "pylsp.builtin.installExtrasArgs": [
-    "mccabe",
     "pydocstyle",
     "pycodestyle",
-    "pylint",
     "rope",
     "black"
   ],
