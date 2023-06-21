@@ -17,5 +17,6 @@
   "python.formatting.blackPath": "~/.config/coc/extensions/@yaegassy/coc-pylsp-data/pylsp/venv/bin/black",
   "coc.preferences.formatOnSaveFiletypes": [],
   "pylsp.builtin.enableInstallPylsIsort": true,
-  "pylsp.builtin.enableInstallPythonLspBlack": true 
+  "pylsp.builtin.enableInstallPythonLspBlack": true,
+  "languageserver.python.settings.pyls.plugins.pylint_lint.enabled": false
 }
