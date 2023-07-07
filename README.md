@@ -13,4 +13,6 @@ python3 -m pip install pynvim
 From inside nvim
 `:PackerInstall`
 `:UpdateRemotePlugins`
+`:TSInstall all`
+`:TSUpdate`
 Close and reopen nvim then `:CocInstall`

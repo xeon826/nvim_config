@@ -29,8 +29,9 @@ imap <C-l> <Right>
 
 au TextYankPost * silent! lua vim.highlight.on_yank()
 set clipboard+=unnamedplus
-set tabstop=4
-set shiftwidth=4
+set title
+"set tabstop=4
+"set shiftwidth=4
 set expandtab
 set autoread
 set statusline+=%F
@@ -60,6 +61,7 @@ nnoremap <leader>j  <Plug>(coc-codeaction-line)
 nnoremap <leader>h  <Plug>(coc-codeaction-cursor)
 
 command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
+let g:autoflake_remove_all_unused_imports=1
 let g:coc_global_extensions = [
             \ 'coc-json',
             \ 'coc-tsserver',

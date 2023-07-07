@@ -71,6 +71,7 @@ return require('packer').startup(function(use)
   use_rocks 'penlight'
   use_rocks { 'lua-resty-http', 'lpeg' }
 
+  use { 'tenfyzhong/autoflake.vim', run = 'pip install autoflake' }
   use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview' }
   use { 'glacambre/firenvim', run = function() vim.fn['firenvim#install'](0) end }
   use {

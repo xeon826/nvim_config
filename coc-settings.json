@@ -8,15 +8,13 @@
     }
   },
   "pylsp.builtin.installExtrasArgs": [
-    "pydocstyle",
-    "pycodestyle",
-    "rope",
-    "black"
+    "black",
   ],
-  "python.formatting.provider": "black",
-  "python.formatting.blackPath": "~/.config/coc/extensions/@yaegassy/coc-pylsp-data/pylsp/venv/bin/black",
-  "coc.preferences.formatOnSaveFiletypes": [],
+  "inlayHint.enable": false,
   "pylsp.builtin.enableInstallPylsIsort": true,
+  "pylsp.plugins.autopep8.enabled": false,
   "pylsp.builtin.enableInstallPythonLspBlack": true,
+  "pylsp.builtin.enableInstallPythonLspRuff": false,
+  "pylsp.builtin.pythonLspBlackVersion": "1.3.0",
   "languageserver.python.settings.pyls.plugins.pylint_lint.enabled": false
 }
