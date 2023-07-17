@@ -10,11 +10,10 @@
   "pylsp.builtin.installExtrasArgs": [
     "black",
   ],
-  "inlayHint.enable": false,
+  "inlayHint.enable": true,
   "pylsp.builtin.enableInstallPylsIsort": true,
   "pylsp.plugins.autopep8.enabled": false,
   "pylsp.builtin.enableInstallPythonLspBlack": true,
   "pylsp.builtin.enableInstallPythonLspRuff": false,
   "pylsp.builtin.pythonLspBlackVersion": "1.3.0",
-  "languageserver.python.settings.pyls.plugins.pylint_lint.enabled": false
 }
