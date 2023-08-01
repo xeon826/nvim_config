@@ -12,6 +12,7 @@ nnoremap <space>gb :FzfLua git_branches<CR>
 nnoremap <space>gg :tab G<CR>
 nnoremap <space>gc :FzfLua git_commits<CR>
 nnoremap <space>gp :Git push<CR>
+nnoremap <space>dg <Plug>(coc-action-toggleDiagnosticBuffer)<CR>
 nnoremap <C-A-o> :nohlsearch<CR>
 nnoremap <C-A-b> :Format<CR>
 set termguicolors     " enable true colors support

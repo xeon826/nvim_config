@@ -1,6 +1,6 @@
 ```
 sudo add-apt-repository ppa:neovim-ppa/unstable
-sudo apt install neovim silversearcher-ag fd-find ripgrep fzf`
+sudo apt install neovim silversearcher-ag fd-find ripgrep fzf bat
 npm i yarn -D --save-exact
 yarn i prettier -D --save-exact
 wget https://github.com/sharkdp/bat/releases/download/v0.23.0/bat_0.23.0_amd64.deb
