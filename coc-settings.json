@@ -7,13 +7,14 @@
       "filetypes": ["go"]
     }
   },
-  "pylsp.builtin.installExtrasArgs": [
-    "black",
-  ],
-  "inlayHint.enable": true,
-  "pylsp.builtin.enableInstallPylsIsort": true,
+  "pylsp.builtin.installExtrasArgs": ["black"],
+  "inlayHint.enable": false,
+  "pylsp.builtin.enableInstallPylsIsort": false,
   "pylsp.plugins.autopep8.enabled": false,
   "pylsp.builtin.enableInstallPythonLspBlack": true,
+  "pylsp.plugins.black.enabled": true,
+  "pylsp.plugins.black.line_length": 80,
   "pylsp.builtin.enableInstallPythonLspRuff": false,
   "pylsp.builtin.pythonLspBlackVersion": "1.3.0",
+  "pylsp.builtin.pythonPath": "/home/dan/.pyenv/shims/python3",
 }

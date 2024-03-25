@@ -5,24 +5,27 @@ nnoremap <C-s> :w<CR>
 nnoremap <C-A-q> :qa!<CR>
 nnoremap <A-f> :FzfLua live_grep<CR>
 nnoremap <A-F> :FzfLua live_grep_resume<CR>
-nnoremap ff :NvimTreeFindFile<CR>
+nnoremap <space>ff :NvimTreeFindFile<CR>
 nnoremap <C-l> :FzfLua files<CR>
 nnoremap <space>wq :wq<CR>
 nnoremap <space>gb :FzfLua git_branches<CR>
-nnoremap <space>gg :tab G<CR>
+nnoremap <space>gg :G<CR>
+nnoremap <space>gn :tab G<CR>
+nnoremap <space>q :q<CR>
 nnoremap <space>gc :FzfLua git_commits<CR>
 nnoremap <space>gp :Git push<CR>
 nnoremap <space>dg <Plug>(coc-action-toggleDiagnosticBuffer)<CR>
 nnoremap <C-A-o> :nohlsearch<CR>
 nnoremap <C-A-b> :Format<CR>
+nnoremap <space>cn :Git commit --no-verify<CR>
 set termguicolors     " enable true colors support
 let background="dark"   " for dark version of theme
 colorscheme oxocarbon
 " Inline comment mapping
 " autocmd FileType tsx setlocal commentstring={*/\ %s /*}
 " vim maps / to _ so use C-/ for this
-nmap <C-_> :Commentary<CR>
-vmap <C-_> :Commentary<CR>
+nmap <C-/> :Commentary<CR>
+vmap <C-/> :Commentary<CR>
 imap <C-h> <Left>
 imap <C-j> <Down>
 imap <C-k> <Up>
@@ -31,9 +34,9 @@ imap <C-l> <Right>
 au TextYankPost * silent! lua vim.highlight.on_yank()
 set clipboard+=unnamedplus
 set title
-"set tabstop=4
+set tabstop=4
 "set shiftwidth=4
-set expandtab
+"set expandtab
 set autoread
 set statusline+=%F
 set mouse=a
@@ -67,9 +70,23 @@ let g:coc_global_extensions = [
             \ 'coc-json',
             \ 'coc-tsserver',
             \ 'coc-html',
+            \ 'coc-lua',
             \ 'coc-css',
             \ '@yaegassy/coc-pylsp',
             \ '@yaegassy/coc-ruff',
             \ 'coc-prettier'
             \ ]
 autocmd FileType python let b:coc_root_patterns = ['venv', 'env', '.git', '.gitignore', 'manage.py']
+
+" disable the default highlight group
+let g:conflict_marker_highlight_group = ''
+
+" Include text after begin and end markers
+let g:conflict_marker_begin = '^<<<<<<< .*$'
+let g:conflict_marker_end   = '^>>>>>>> .*$'
+
+highlight ConflictMarkerBegin guibg=#2f7366
+highlight ConflictMarkerOurs guibg=#2e5049
+highlight ConflictMarkerTheirs guibg=#344f69
+highlight ConflictMarkerEnd guibg=#2f628e
+highlight ConflictMarkerCommonAncestorsHunk guibg=#754a81
